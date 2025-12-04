@@ -1,0 +1,58 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+          cache-dependency-path: web/package-lock.json
+
+      - name: Install dependencies
+        working-directory: web
+        run: npm ci
+
+      - name: Build frontend
+        working-directory: web
+        run: npm run build
+
+      - name: Prepare release files
+        run: |
+          mkdir -p release/dy_daily_reward
+          cp -r client release/dy_daily_reward/
+          cp -r server release/dy_daily_reward/
+          cp -r sql release/dy_daily_reward/
+          cp -r web/dist release/dy_daily_reward/web/
+          cp -r web/images release/dy_daily_reward/web/
+          cp web/game-reward.ogg release/dy_daily_reward/web/
+          cp fxmanifest.lua release/dy_daily_reward/
+          cp config.lua release/dy_daily_reward/
+          cp README.md release/dy_daily_reward/
+          cp LICENSE release/dy_daily_reward/
+
+      - name: Create ZIP archive
+        run: |
+          cd release
+          zip -r ../dy_daily_reward-${{ github.ref_name }}.zip dy_daily_reward
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: dy_daily_reward-${{ github.ref_name }}.zip
+          generate_release_notes: true
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

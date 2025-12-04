@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build cache
+.cache/
+.vite/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp files
+*.log
+*.tmp
+readme_temp.md

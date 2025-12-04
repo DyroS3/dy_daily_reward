@@ -1,0 +1,129 @@
+{
+  "design_system": {
+    "name": "Dark Immersive Gaming Reward UI",
+    "version": "1.0",
+    "description": "A dark-themed, grid-based inventory/calendar interface typical for RPG game HUDs. Features semi-transparent overlays, high-contrast typography, and a strict grid layout.",
+    "visual_language": {
+      "style_archetype": "Game HUD / Inventory System",
+      "key_traits": [
+        "Dark mode with varying opacity",
+        "Strict 7-column grid layout",
+        "Minimalist borders",
+        "Gold/Yellow accents for emphasis",
+        "Floating tooltips on hover",
+        "3D object rendering aesthetic"
+      ]
+    },
+    "color_palette": {
+      "backgrounds": {
+        "modal_overlay": "rgba(0, 0, 0, 0.85)",
+        "header_bg": "transparent",
+        "cell_bg_default": "rgba(30, 30, 30, 0.6)",
+        "cell_bg_hover": "rgba(255, 255, 255, 0.1)",
+        "tooltip_bg": "#1F2937"
+      },
+      "text": {
+        "primary_gold": "#FFC107",
+        "secondary_white": "#E5E7EB",
+        "muted_gray": "#9CA3AF",
+        "tooltip_text": "#FFFFFF"
+      },
+      "borders": {
+        "grid_line": "rgba(255, 255, 255, 0.1)",
+        "selection_gold": "#FFD700",
+        "active_green": "#10B981"
+      },
+      "states": {
+        "claimed": "#10B981",
+        "locked": "rgba(0, 0, 0, 0.5)"
+      }
+    },
+    "typography": {
+      "font_family": "Sans-serif (e.g., Kanit, Prompt, Roboto - needs Multi-language support)",
+      "weights": {
+        "regular": 400,
+        "medium": 500,
+        "bold": 700
+      },
+      "hierarchy": {
+        "title": {
+          "size": "1.5rem",
+          "color": "primary_gold",
+          "weight": "bold",
+          "text_transform": "none"
+        },
+        "subtitle": {
+          "size": "0.875rem",
+          "color": "secondary_white",
+          "weight": "regular"
+        },
+        "cell_number": {
+          "size": "0.75rem",
+          "color": "muted_gray",
+          "position": "absolute_top_right"
+        }
+      }
+    },
+    "layout_structure": {
+      "container": {
+        "width": "max-w-4xl",
+        "padding": "20px",
+        "background": "dark_overlay"
+      },
+      "grid_system": {
+        "display": "grid",
+        "columns": "repeat(7, 1fr)",
+        "rows": "repeat(4, 1fr)",
+        "gap": "1px",
+        "aspect_ratio": "1/1"
+      }
+    },
+    "components": {
+      "reward_cell": {
+        "base": {
+          "position": "relative",
+          "display": "flex",
+          "align_items": "center",
+          "justify_content": "center",
+          "border": "1px solid grid_line",
+          "background": "cell_bg_default",
+          "cursor": "pointer"
+        },
+        "hover_state": {
+          "border": "2px solid selection_gold",
+          "z_index": "10"
+        },
+        "content": {
+          "image_size": "60% of cell",
+          "number_padding": "4px 8px"
+        }
+      },
+      "tooltip": {
+        "background": "#222222",
+        "text_color": "#FFFFFF",
+        "padding": "4px 8px",
+        "border_radius": "4px",
+        "font_size": "0.8rem",
+        "position": "floating_near_cursor",
+        "z_index": "50"
+      },
+      "header": {
+        "layout": "flex-row",
+        "alignment": "items-center",
+        "logo_style": "cursive_font_accent",
+        "close_button": {
+          "position": "absolute_top_right",
+          "icon": "X",
+          "color": "secondary_white"
+        }
+      },
+      "status_indicators": {
+        "claimed_overlay": {
+          "icon": "check_circle_outline",
+          "color": "#4ADE80",
+          "opacity": "0.8"
+        }
+      }
+    }
+  }
+}
