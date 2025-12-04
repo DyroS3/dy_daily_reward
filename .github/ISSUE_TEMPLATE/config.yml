@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 💬 讨论区
+    url: https://github.com/DyroS3/dy_daily_reward/discussions
+    about: 有问题想讨论？请使用讨论区
+  - name: 📖 文档
+    url: https://github.com/DyroS3/dy_daily_reward#readme
+    about: 查看 README 文档

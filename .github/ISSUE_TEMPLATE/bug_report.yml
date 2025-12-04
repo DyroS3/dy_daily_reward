@@ -1,0 +1,97 @@
+name: 🐛 Bug 报告
+description: 报告一个 Bug 帮助我们改进
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你花时间填写这个 Bug 报告！请尽可能详细地描述问题。
+
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 清晰简洁地描述这个 Bug
+      placeholder: 描述你遇到的问题...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤
+      description: 如何复现这个问题？
+      placeholder: |
+        1. 打开签到界面
+        2. 点击 '...'
+        3. 出现错误
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望行为
+      description: 你期望发生什么？
+      placeholder: 描述你期望的正确行为...
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: 截图
+      description: 如果有的话，请添加截图帮助解释问题
+      placeholder: 拖拽图片到这里...
+    validations:
+      required: false
+
+  - type: input
+    id: fivem-version
+    attributes:
+      label: FiveM 版本
+      description: 你使用的 FiveM 版本
+      placeholder: "例如: 7290"
+    validations:
+      required: true
+
+  - type: input
+    id: resource-version
+    attributes:
+      label: 资源版本
+      description: dy_daily_reward 版本
+      placeholder: "例如: v1.0.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: framework
+    attributes:
+      label: 使用框架
+      options:
+        - ESX
+        - QBCore
+        - 其他
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: 错误日志
+      description: 请粘贴相关的服务器/客户端日志
+      render: shell
+      placeholder: 粘贴日志内容...
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: 检查清单
+      options:
+        - label: 我已搜索过现有的 Issues，没有找到相同的问题
+          required: true
+        - label: 我已确认使用的是最新版本
+          required: true
