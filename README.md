@@ -20,12 +20,20 @@
 <!-- BADGES -->
 <div align="center">
 
-![GitHub release](https://img.shields.io/github/v/release/DyroS3/dy_daily_reward?style=flat-square)
+[![GitHub release](https://img.shields.io/github/v/release/DyroS3/dy_daily_reward?style=flat-square&include_prereleases)](https://github.com/DyroS3/dy_daily_reward/releases/latest)
 ![GitHub stars](https://img.shields.io/github/stars/DyroS3/dy_daily_reward?style=flat-square)
 ![GitHub forks](https://img.shields.io/github/forks/DyroS3/dy_daily_reward?style=flat-square)
 ![GitHub issues](https://img.shields.io/github/issues/DyroS3/dy_daily_reward?style=flat-square)
 ![License](https://img.shields.io/github/license/DyroS3/dy_daily_reward?style=flat-square)
 
+</div>
+
+---
+
+## 📸 预览
+
+<div align="center">
+  <img src="preview.webp" alt="Preview" width="600" />
 </div>
 
 ---
