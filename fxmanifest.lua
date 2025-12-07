@@ -4,7 +4,7 @@ game 'gta5'
 name 'dy_daily_reward'
 description '每日签到奖励系统'
 author 'DingYu'
-version '1.0.0'
+version '1.0.1'
 
 lua54 'yes'
 

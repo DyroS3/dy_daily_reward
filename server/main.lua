@@ -160,11 +160,23 @@ local function CalculateStreak(playerData, dateInfo)
         return 1
     end
 
-    -- 解析上次领取日期
-    local year, month, day = lastClaim:match('(%d+)-(%d+)-(%d+)')
+    -- 解析上次领取日期（处理 oxmysql 可能返回数字或字符串的情况）
+    local year, month, day
+
+    if type(lastClaim) == 'number' then
+        -- oxmysql 返回的是时间戳（毫秒）
+        local dateTable = os.date('*t', lastClaim / 1000)
+        year, month, day = dateTable.year, dateTable.month, dateTable.day
+    elseif type(lastClaim) == 'string' then
+        year, month, day = lastClaim:match('(%d+)-(%d+)-(%d+)')
+        year, month, day = tonumber(year), tonumber(month), tonumber(day)
+    else
+        return 1
+    end
+
     if not year then return 1 end
 
-    local lastDate = os.time({ year = tonumber(year) or 0, month = tonumber(month) or 1, day = tonumber(day) or 1 })
+    local lastDate = os.time({ year = year, month = month or 1, day = day or 1 })
     local today = os.time({ year = dateInfo.year, month = dateInfo.month, day = dateInfo.day })
     local diff = os.difftime(today, lastDate) / 86400
 
