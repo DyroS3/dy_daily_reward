@@ -65,24 +65,18 @@
 
 ### 环境依赖
 
-- Node.js 18+
 - FiveM Server
 - MySQL / MariaDB
 
-### 安装步骤
+### 方式一：下载发布版（推荐）
 
-1. **下载资源**
-   ```bash
-   cd resources
-   git clone https://github.com/DyroS3/dy_daily_reward.git
-   ```
+1. **下载最新版本**
 
-2. **构建前端**
-   ```bash
-   cd dy_daily_reward/web
-   npm install
-   npm run build
-   ```
+   前往 [Releases](https://github.com/DyroS3/dy_daily_reward/releases/latest) 下载最新的 `dy_daily_reward-vX.X.X.zip`
+
+2. **解压到资源目录**
+
+   将解压后的 `dy_daily_reward` 文件夹放入服务器的 `resources` 目录
 
 3. **配置 server.cfg**
    ```cfg
@@ -93,6 +87,25 @@
    ```
 
 4. **启动服务器** - 数据库表会自动创建
+
+### 方式二：从源码构建
+
+适用于开发者或需要自定义修改的用户。
+
+1. **克隆仓库**
+   ```bash
+   cd resources
+   git clone https://github.com/DyroS3/dy_daily_reward.git
+   ```
+
+2. **安装依赖并构建前端**（需要 Node.js 18+）
+   ```bash
+   cd dy_daily_reward/web
+   npm install
+   npm run build
+   ```
+
+3. **配置 server.cfg** 并启动服务器
 
 ---
 
